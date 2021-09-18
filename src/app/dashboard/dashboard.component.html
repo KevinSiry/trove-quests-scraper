@@ -1,0 +1,29 @@
+<div id="bigbox">
+    <div *ngFor="let element of finalData" class="cards {{element.id}}" (click)="changeStatus($event, element.id)">
+        <div *ngIf="element.messages.length > 0">
+            <div><img src="{{element.image}}"></div>
+            <h2>{{ element.name }}</h2>
+            <p>{{element.messages.length}} worlds available !</p>
+
+            <!-- Child -->
+            <div id="box">
+                <div *ngFor="let sub of element.child" class="cards2 {{sub.id}}" (click)="changeStatus($event, sub.id)">
+                    <div *ngIf="sub.messages.length > 0">
+                        <div><img src="{{sub.image}}"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Child -->
+        </div>
+    </div>
+</div>
+<div *ngFor="let element of optimizedChoices">
+    <h1 class="choices" (click)="copyMessage(element)">{{ element }}</h1>
+</div>
+<div class="footer">
+    <p>
+        <i class="fab fa-twitch"></i><a href="https://www.twitch.tv/chabowtv" target="_blank"> ChabowTV</a>
+        <img id="trove-img" src="assets/images/A0pnjgF.png"> Chaabow
+        <i class="fab fa-discord" style="padding-left: 5px;"></i> Chabow#7728
+    </p>
+</div>
